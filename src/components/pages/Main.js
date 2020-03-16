@@ -10,36 +10,48 @@ import World from './World'
 import Indonesia from './Indonesia'
 import Rules from './Rules'
 import Report from './Report'
+import List from './List'
 
 class Main extends Component {
 
   static contextType = ParentContext;
 
   render() {
-    let { data } = this.context
-    console.log(data)
+    const { data } = this.context
+    let recoverAll = data.reduce((total, recover) => total + recover.recovered, 0)
+    let confirm = data.reduce((total,confirmed) => total + confirmed.confirmed, 0)
+    let dead = data.reduce((total, death) => total + death.deaths, 0)
+
     return (
-      <MainContainer fluid='fluid'>
-        <Row>
-          <Grid size='6'>
-            <Indonesia />
-          </Grid>
-          <Grid size='3'>
-            <World />
-          </Grid>
-          <Grid size='3'>
-            <Report />
-          </Grid>
-          <Grid size='4'>
-            <Rules />
-          </Grid>
-          <Grid size='8'>
-            <MyCard bg='dark'>
-              <Title title='Data orang yang berhasil sembuh' paragraph='p' />
-            </MyCard>
-          </Grid>
-        </Row>
-      </MainContainer>
+      <>
+        <MainContainer fluid='fluid'>
+          <Row>
+            <Grid size='4'>
+              <Indonesia />
+            </Grid>
+            <Grid size='4'>
+              <World 
+                recoverAll={recoverAll}
+                confirm={confirm}
+                dead={dead}
+              />
+            </Grid>
+            <Grid size='4'>
+              <Report />
+            </Grid>
+          </Row>
+        </MainContainer>
+        <MainContainer>
+          <Row>
+            <Grid size='12'>
+              <List data={data} />
+            </Grid>
+            <Grid size='4'>
+              <Rules />
+            </Grid>
+          </Row>
+        </MainContainer>
+      </>
     )
   }
 }

@@ -6,7 +6,7 @@ class Indonesia extends Component {
   render() {
     return (
       <MyCard bg='dark'>
-        <Title title='Data Covid - 19 di indonesia' />
+        <Title title='Data Covid - 19 di indonesia' paragraph='p' />
         tes
       </MyCard>
     )
