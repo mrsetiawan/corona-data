@@ -9,7 +9,8 @@ class MyContext extends Component {
   // controller = new listController();
 
   state = {
-    data: []
+    data: [],
+    isLoading:true,
   }
 
   componentDidMount() {
@@ -22,9 +23,16 @@ class MyContext extends Component {
       })
   }
 
+   myCountry = iso3 => {
+    const data = [...this.state.data]
+    let indonesia = data.find(code => code.iso3 === iso3)
+
+    return indonesia
+  }
+
   render() {
     return (
-      <ParentContext.Provider value={{...this.state}}>
+      <ParentContext.Provider value={{...this.state, dataIndo: this.myCountry}}>
         {this.props.children}
       </ParentContext.Provider>
     )
