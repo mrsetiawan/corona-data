@@ -1,11 +1,23 @@
 import React from 'react';
 import MyCard from '../ui/MyCard'
-import Title from '../ui/Title'
 
 function Rules(props) {
   return (
     <MyCard bg='dark'>
-      Cara pencegahan
+      <p className='text-warning'>Cara pencegahan</p>
+      <p>Beberapa tips untuk menghindari virus corona.</p>
+
+      <ul>
+        <li>Mencuci tangan dengan benar</li>
+        <li>Menggunakan masker</li>
+        <li>Menjaga daya tahan tubuh</li>
+        <li>Tidak pergi ke negara terjangkit</li>
+        <li>Minum vitamin C</li>
+        <li>Hindari menyentuh mata, hidung, dan mulut dengan tangan yang tidak dicuci</li>
+        <li>Konsumsi gizi seimbang, perbanyak sayur dan buah</li>
+        <li>Rajin olahraga dan istirahat cukup</li>
+        <li>Jangan mengonsumsi daging yang tidak masak</li>
+      </ul>
     </MyCard>
   )
 }

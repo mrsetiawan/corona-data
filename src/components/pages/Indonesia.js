@@ -4,53 +4,47 @@ import Title from '../ui/Title'
 import { ParentContext } from '../../myContext'
 import { Row } from 'react-bootstrap'
 import Grid from '../ui/Grid'
+import { Doughnut } from 'react-chartjs-2';
+import ListChildren from './ListChildren'
 
 class Indonesia extends Component {
 
   static contextType = ParentContext
 
   state = {
-    iso3: 'IDN',
-    loading: true
+    data: {
+      datasets: [
+        {
+          labels: ["Dikonfirmasi","Sembuh","Meninggal"],
+          backgroundColor: ["#ffc107","#28a745","#dc3545"],
+          data:[this.props.confirmed ,this.props.recovered,this.props.deaths],
+        }
+      ]
+    }
   }
+
   
   componentDidMount (){
     this.setState({loading:false})
   }
+
   render() {
 
-    const { dataIndo } = this.context
-    let data = dataIndo(this.state.iso3)
-    
-    if(!data) {
-      return(
-        <MyCard bg='dark'>
-        <Title title='Data Covid - 19 di indonesia' paragraph='p' />
-        <Row>
-          <Grid size='12'>
-            loading...
-          </Grid>
-        </Row>
-      </MyCard>
-      )
-    }
-
-    const {confirmed,recovered,deaths} = data
+    const {confirmed, recovered, deaths} = this.props 
 
     return (
       <MyCard bg='dark'>
         <Title title='Data Covid - 19 di indonesia' paragraph='p' />
         <Row>
-          <Grid size='7'>
-            tes
+          <Grid size='9'>
+            <Doughnut data={this.state.data}/>
           </Grid>
-          <Grid size='5'>
-            <p className='mb-0'>{confirmed}</p>
-            <p className='text-warning'>Dikonfirmasi</p>
-            <p className='mb-0'>{recovered}</p>
-            <p className='text-success'>Sembuh</p>
-            <p className='mb-0'>{deaths}</p>
-            <p className='text-danger'>Meninggal</p>
+          <Grid size='3'>
+            <ListChildren 
+              confirmed={confirmed}
+              recovered={recovered}
+              deaths={deaths}
+            />
           </Grid>
         </Row>
       </MyCard>
