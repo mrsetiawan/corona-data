@@ -4,13 +4,9 @@ import { ParentContext } from '../../myContext'
 import Grid from '../ui/Grid'
 import MainContainer from '../ui/MainContainer'
 import Footer from '../ui/Footer'
-// import MyCard from '../ui/MyCard'
-// import MyChar from '../ui/MyChar'
-// import Title from '../ui/Title'
 import World from './World'
 import Indonesia from './Indonesia'
 import Rules from './Rules'
-// import Report from './Report'
 import List from './List'
 
 class Main extends Component {
@@ -33,9 +29,9 @@ class Main extends Component {
           <Col md="auto">
             <span>Loading ... &nbsp;&nbsp;
               {[0,1,2,3].map((idx => 
-                <>
-                  <Spinner key={idx} animation="border" />&nbsp;&nbsp;
-                </>
+                <React.Fragment key={idx}>
+                  <Spinner animation="border" />&nbsp;&nbsp;
+                </React.Fragment>
               ))}
             </span>
           </Col>
@@ -63,9 +59,6 @@ class Main extends Component {
                 deaths={dead}
               />
             </Grid>
-            {/* <Grid size='4'>
-              <Report />
-            </Grid> */}
             <Grid size='5'>
               <Row>
                 <Grid size='12'>
@@ -81,16 +74,6 @@ class Main extends Component {
             </Grid>
           </Row>
         </MainContainer>
-        {/* <MainContainer>
-          <Row>
-            <Grid size='8'>
-              <List data={data} />
-            </Grid>
-            <Grid size='4'>
-              <Rules />
-            </Grid>
-          </Row>
-        </MainContainer> */}
       </>
     )
   }
