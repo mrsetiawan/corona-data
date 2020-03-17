@@ -15,19 +15,13 @@ class Indonesia extends Component {
     data: {
       datasets: [
         {
-          labels: ["Dikonfirmasi","Sembuh","Meninggal"],
           backgroundColor: ["#ffc107","#28a745","#dc3545"],
+          labels: ["Dikonfirmasi","Sembuh","Meninggal"],
           data:[this.props.confirmed ,this.props.recovered,this.props.deaths],
         }
       ]
     }
   }
-
-  
-  componentDidMount (){
-    this.setState({loading:false})
-  }
-
   render() {
 
     const {confirmed, recovered, deaths} = this.props 

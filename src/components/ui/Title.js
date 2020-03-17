@@ -4,7 +4,7 @@ function Title(props) {
   return (
     <>
       {props.paragraph ?
-        <p>
+        <p className='text-warning'>
           {props.title}
           {props.children}
         </p>

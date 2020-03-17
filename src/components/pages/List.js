@@ -12,10 +12,10 @@ class List extends Component {
     return (
       <MyCard bg='dark'>
         <Title paragraph='p'>
-          <span className='text-warning text-center'>Data negara yang terkena virus corona atau covid - 19</span>
+          <span className='text-warning'> Data negara yang terkena virus corona atau covid - 19</span>
         </Title>
-        <hr />
-        <Table striped bordered hover variant="dark">
+        {/* <hr /> */}
+        <Table striped bordered hover variant="danger">
           <thead>
             <tr style={{ color: 'primary !important' }}>
               <th>No</th>
@@ -32,7 +32,7 @@ class List extends Component {
                 <tr key={idx}>
                   <td>{idx + 1}</td>
                   <td>{item.countryRegion}</td>
-                  <td>{item.provinceState ? item.provinceState: "-"}</td>
+                  <td>{item.provinceState ? item.provinceState: <small><i>not set</i></small>}</td>
                   <td>{item.confirmed}</td>
                   <td>{item.recovered}</td>
                   <td>{item.deaths}</td>

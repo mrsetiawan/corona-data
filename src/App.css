@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Poppins&display=swap');
 
 body{
-  background: #0d1115;
+  background: #021629;
   padding: 10px;
   margin: 10px;
   color: #ffffff;
   font-family: 'Open Sans', sans-serif;
   font-family: 'Poppins', sans-serif;
   /* width: 100vw; */
+}
+
+.bg-dark {
+  background-color: #152b42d4 !important;
 }
 
 a {

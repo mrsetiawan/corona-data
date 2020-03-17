@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Row,Col } from 'react-bootstrap'
+import { Row, Col, Spinner } from 'react-bootstrap'
 import { ParentContext } from '../../myContext'
 import Grid from '../ui/Grid'
 import MainContainer from '../ui/MainContainer'
+import Footer from '../ui/Footer'
 // import MyCard from '../ui/MyCard'
 // import MyChar from '../ui/MyChar'
 // import Title from '../ui/Title'
@@ -30,7 +31,13 @@ class Main extends Component {
       return (
         <Row className="justify-content-md-center">
           <Col md="auto">
-            <p>Loading data......</p>
+            <span>Loading ... &nbsp;&nbsp;
+              {[0,1,2,3].map((idx => 
+                <>
+                  <Spinner key={idx} animation="border" />&nbsp;&nbsp;
+                </>
+              ))}
+            </span>
           </Col>
         </Row>
       )
@@ -60,7 +67,14 @@ class Main extends Component {
               <Report />
             </Grid> */}
             <Grid size='5'>
-              <Rules />
+              <Row>
+                <Grid size='12'>
+                  <Rules />
+                </Grid>
+                <Grid size='12'>
+                  <Footer />
+                </Grid>
+              </Row>
             </Grid>
             <Grid size='7'>
               <List data={data} />
