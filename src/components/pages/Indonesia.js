@@ -4,7 +4,7 @@ import Title from '../ui/Title'
 import { ParentContext } from '../../myContext'
 import { Row } from 'react-bootstrap'
 import Grid from '../ui/Grid'
-import { Doughnut } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2'
 import ListChildren from './ListChildren'
 
 class Indonesia extends Component {
@@ -26,7 +26,7 @@ class Indonesia extends Component {
 
     const {confirmed, recovered, deaths} = this.props 
 
-    return (
+    return (  
       <MyCard bg='dark'>
         <Title title='Data Covid - 19 di indonesia' paragraph='p' />
         <Row>

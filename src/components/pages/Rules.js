@@ -3,11 +3,13 @@ import MyCard from '../ui/MyCard'
 
 function Rules(props) {
   return (
+    <>
     <MyCard bg='dark'>
       <p className='text-warning'>Cara pencegahan</p>
       <p>Beberapa tips untuk menghindari virus corona.</p>
 
       <ul>
+        <li>Berdoa kepada allah swt,dan bertaubat</li>
         <li>Mencuci tangan dengan benar</li>
         <li>Menggunakan masker</li>
         <li>Menjaga daya tahan tubuh</li>
@@ -19,6 +21,7 @@ function Rules(props) {
         <li>Jangan mengonsumsi daging yang tidak masak</li>
       </ul>
     </MyCard>
+    </>
   )
 }
 

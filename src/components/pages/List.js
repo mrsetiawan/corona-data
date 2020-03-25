@@ -15,7 +15,7 @@ class List extends Component {
           <span className='text-warning'> Data negara yang terkena virus corona atau covid - 19</span>
         </Title>
         {/* <hr /> */}
-        <Table striped bordered hover variant="danger">
+        <Table striped bordered hover variant="danger" responsive>
           <thead>
             <tr style={{ color: 'primary !important' }}>
               <th>No</th>

@@ -7,6 +7,7 @@ import Footer from '../ui/Footer'
 import World from './World'
 import Indonesia from './Indonesia'
 import Rules from './Rules'
+import Himbauan from './Himbauan'
 import List from './List'
 
 class Main extends Component {
@@ -25,8 +26,8 @@ class Main extends Component {
 
     if (!idn) {
       return (
-        <Row className="justify-content-md-center">
-          <Col md="auto">
+        <Row>
+          <div style={{margin: 0,position: 'absolute'}}>
             <span>Loading ... &nbsp;&nbsp;
               {[0,1,2,3].map((idx => 
                 <React.Fragment key={idx}>
@@ -34,7 +35,7 @@ class Main extends Component {
                 </React.Fragment>
               ))}
             </span>
-          </Col>
+          </div>
         </Row>
       )
     }
@@ -54,8 +55,8 @@ class Main extends Component {
             </Grid>
             <Grid size='6'>
               <World
-                confirmed={recoverAll}
-                recovered={confirm}
+                confirmed={confirm}
+                recovered={recoverAll}
                 deaths={dead}
               />
             </Grid>
@@ -63,6 +64,8 @@ class Main extends Component {
               <Row>
                 <Grid size='12'>
                   <Rules />
+                  <br />
+                  <Himbauan />
                 </Grid>
                 <Grid size='12'>
                   <Footer />

@@ -7,11 +7,13 @@ const ParentContext = React.createContext();
 class MyContext extends Component {
 
   // controller = new listController();
-
-  state = {
-    data: [],
-    isLoading:true,
-  }
+  constructor(props){
+    super(props)
+    this.state = {
+      data: []
+    }
+  };
+ 
 
   componentDidMount() {
     // this.controller.getList()
@@ -23,7 +25,7 @@ class MyContext extends Component {
       })
   }
 
-   myCountry = iso3 => {
+   myCountry = (iso3) => {
     const data = [...this.state.data]
     let indonesia = data.find(code => code.iso3 === iso3)
 
