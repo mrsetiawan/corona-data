@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Row, Col, Spinner } from 'react-bootstrap'
+import { Row, Spinner } from 'react-bootstrap'
 import { ParentContext } from '../../myContext'
 import Grid from '../ui/Grid'
 import MainContainer from '../ui/MainContainer'
@@ -27,15 +27,17 @@ class Main extends Component {
     if (!idn) {
       return (
         <Row>
-          <div style={{margin: 0,position: 'absolute'}}>
-            <span>Loading ... &nbsp;&nbsp;
-              {[0,1,2,3].map((idx => 
-                <React.Fragment key={idx}>
-                  <Spinner animation="border" />&nbsp;&nbsp;
-                </React.Fragment>
-              ))}
-            </span>
-          </div>
+          <Grid size='12'>
+            <div className='text-center'>
+              <span>Loading &nbsp;
+                {[0,1,2,3].map((idx => 
+                  <React.Fragment key={idx}>
+                    <Spinner animation="border" />&nbsp;&nbsp;
+                  </React.Fragment>
+                ))}
+              </span>
+            </div>
+          </Grid>
         </Row>
       )
     }
